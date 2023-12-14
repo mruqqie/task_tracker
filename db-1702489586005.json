@@ -1,0 +1,23 @@
+{
+  "tasks": [
+    {
+      "title": "Do 50 Crunches",
+      "description": "Workout plan",
+      "dueDate": "2023-12-14",
+      "id": 1
+    },
+    {
+      "id": "task_l5dpjrn3d",
+      "title": "Do 2 reps of 50 squats",
+      "description": "Workout plan",
+      "dueDate": "2023-12-14"
+    },
+    {
+      "id": "task_vjajtyhez",
+      "title": "Pray",
+      "description": "Daily",
+      "dueDate": "2023-12-14",
+      "status": "Open"
+    }
+  ]
+}

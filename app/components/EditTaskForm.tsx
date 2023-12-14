@@ -1,18 +1,30 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
+import { Task } from "../constants";
 import { useTaskContext } from "../TaskContext";
-import { TaskFormData, TaskFormProps } from "../constants";
 
-const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
-	const { addTask } = useTaskContext();
+interface EditTaskFormProps {
+	onClose: () => void;
+	taskId: string;
+	task: Task | null;
+}
+
+interface TaskFormData {
+	title: string;
+	description: string;
+	dueDate: string;
+}
+
+const EditTaskForm: React.FC<EditTaskFormProps> = ({
+	onClose,
+	task,
+	taskId,
+}) => {
+	const { updateTask } = useTaskContext();
 	const [formData, setFormData] = useState<TaskFormData>({
-		title: "",
-		description: "",
-		dueDate: "",
+		title: task?.title || "",
+		description: task?.description || "",
+		dueDate: task?.dueDate || "",
 	});
-
-	const generateRandomId = () => {
-		return "task_" + Math.random().toString(36).substr(2, 9);
-	};
 
 	const handleChange = (
 		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,18 +36,19 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 		e.preventDefault();
 
 		try {
-			const taskId = generateRandomId();
-			const taskData = {
-				id: taskId,
-				title: formData.title,
-				description: formData.description,
-				dueDate: formData.dueDate,
-				status: "Open",
-			};
-			addTask(taskData)
-			onClose()
+			if (task) {
+				const updatedTaskData = {
+					...task,
+					title: formData.title,
+					description: formData.description,
+					dueDate: formData.dueDate,
+				};
+
+				updateTask(taskId, updatedTaskData);
+				onClose();
+			}
 		} catch (error) {
-			console.error("Error creating task:", error);
+			console.error("Error updating task:", error);
 		}
 	};
 
@@ -44,7 +57,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 	return (
 		<div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-75">
 			<div className="rounded-xl bg-black p-8">
-				<h2 className="text-2xl font-bold mb-4">Create New Task</h2>
+				<h2 className="text-2xl font-bold mb-4">Edit Task</h2>
 				<form onSubmit={handleSubmit}>
 					<label htmlFor="title" className="block mb-2">
 						Title:
@@ -53,7 +66,6 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 							id="title"
 							name="title"
 							value={formData.title}
-							required
 							onChange={handleChange}
 							className="w-full border p-2 rounded-md bg-black"
 						/>
@@ -77,7 +89,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 							value={formData.dueDate}
 							onChange={handleChange}
 							min={currentDate}
-							className="date w-full border p-2 rounded-md bg-black"
+							className="w-full border p-2 rounded-md bg-black"
 						/>
 					</label>
 					<div className="flex justify-end mt-5">
@@ -87,11 +99,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 						>
 							Close
 						</button>
-						<button
-							className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-md"
-							// Add functionality to handle form submission
-						>
-							Create Task
+						<button className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-md">
+							Update Task
 						</button>
 					</div>
 				</form>
@@ -100,4 +109,4 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 	);
 };
 
-export default TaskForm;
+export default EditTaskForm;

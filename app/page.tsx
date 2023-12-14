@@ -1,9 +1,14 @@
+import { TaskProvider } from "./TaskContext";
+import Board from "./components/Board";
 import Header from "./components/Header";
 
 export default function Home() {
-  return (
-    <div>
-      <Header />
-    </div>
-  )
+	return (
+		<TaskProvider>
+			<div>
+				<Header />
+        <Board />
+			</div>
+		</TaskProvider>
+	);
 }
