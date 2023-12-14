@@ -1,3 +1,6 @@
+# Task Tracker
+A task tracker application developed using Next.js that allows users to add, edit, and delete tasks.
+
 ## Getting Started
 
 These instructions will help you set up and run the project on your local machine.
@@ -21,7 +24,8 @@ Make sure you have the following software installed on your machine:
    ```bash
    cd your-project
    ```
-3. **Install dependencies:**
+3. **Install dependencies:**'
+   
    Using npm:
    ```bash
    npm install
@@ -30,3 +34,27 @@ Make sure you have the following software installed on your machine:
    ```bash
    yarn install
    ```
+
+### Running the application
+1. **Start the Mock API server:**
+
+      Using npm:
+   ```bash
+   npm run json-server
+   ```
+   Using yarn:
+   ```bash
+   yarn json-server
+   ```
+2. **Start the development server:**
+   
+   Using npm:
+   ```bash
+   npm run dev
+   ```
+   Using yarn:
+   ```bash
+   yarn run
+   ```
+
+3. Open your browser and go to http://localhost:3000 to view the application.
