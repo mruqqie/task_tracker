@@ -34,11 +34,12 @@ const BoardColumn: React.FC<BoardColumnProps> = ({
 				<h2 className="text-[25px] font-bold text-white pl-4">
 					{status}
 				</h2>
-				<p className="text-[10px] pr-4">Sort by: <span>Due Date</span>-<span>A-Z</span></p>
+				{/* <p className="text-[10px] pr-4">Sort by: <span>Due Date</span>-<span>A-Z</span></p> */}
 			</div>
 			<div className="space-y-4 p-4">
 				{tasks.map((task) => (
 					<Tasks
+						key={task.id}
 						task={task}
 						toggleEditFormVisibility={toggleEditFormVisibility}
 					/>

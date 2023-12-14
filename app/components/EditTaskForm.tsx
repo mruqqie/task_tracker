@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Task } from "../constants";
-import { useTaskContext } from "../TaskContext";
+import { useTaskContext } from "../context/TaskContext";
 
 interface EditTaskFormProps {
 	onClose: () => void;

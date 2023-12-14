@@ -6,7 +6,8 @@ import React, {
 	ReactNode,
 	useEffect,
 } from "react";
-import { Task, TaskContextValue } from "./constants";
+import { Task, TaskContextValue } from "../constants";
+import { useUserContext } from "./UserContext";
 
 interface TaskContextProps {
 	children: ReactNode;
@@ -17,14 +18,16 @@ const TaskContext = createContext<TaskContextValue | undefined>(undefined);
 
 export const TaskProvider: React.FC<TaskContextProps> = ({ children }) => {
 	const [tasks, setTasks] = useState<Task[]>([]);
+	const {currentUserId} = useUserContext()
 
 	useEffect(() => {
+		
 		fetchTasks();
 	}, []);
 
 	const fetchTasks = async () => {
 		try {
-			const response = await fetch("http://localhost:3001/tasks");
+			const response = await fetch(`http://localhost:3001/tasks?user=${currentUserId}`);
 			const data = await response.json();
 			setTasks(data);
 		} catch (error) {

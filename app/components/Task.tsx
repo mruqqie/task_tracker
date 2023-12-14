@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { useTaskContext } from "../TaskContext";
+import { useTaskContext } from "../context/TaskContext";
 import editIcon from "../assets/edit.png";
 import deleteIcon from "../assets/delete.png";
 import { TaskProps, ItemTypes } from "../constants";

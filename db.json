@@ -1,74 +1,40 @@
 {
+  "users": [
+    {
+      "id": "user_rmtzmwir8",
+      "username": "user1",
+      "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"
+    },
+    {
+      "id": "user_fsq1go04c",
+      "username": "user2",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5"
+    }
+  ],
   "tasks": [
     {
-      "id": "task_wj9ewu069",
-      "title": "Sleep",
-      "description": "Night",
+      "id": "task_f1oral933",
+      "title": "Task1",
+      "description": "Task",
+      "dueDate": "2023-12-15",
+      "status": "Open",
+      "user": "user_fsq1go04c"
+    },
+    {
+      "id": "task_ocx0nnfcb",
+      "title": "Task 2",
+      "description": "A task",
       "dueDate": "2023-12-21",
-      "status": "Pending"
+      "status": "In Progress",
+      "user": "user_fsq1go04c"
     },
     {
-      "id": "task_fjk7y9au8b",
-      "title": "Do something 3",
-      "description": "Anything",
-      "dueDate": "2023-12-30",
-      "status": "In Progress"
-    },
-    {
-      "id": "task_fjk7y9788b",
-      "title": "Do something 3",
-      "description": "Anything",
-      "dueDate": "2023-12-14",
-      "status": "Completed"
-    },
-    {
-      "id": "task_fj09iy923fb",
-      "title": "Do something 4",
-      "description": "Anything",
-      "dueDate": "2023-12-14",
-      "status": "Completed"
-    },
-    {
-      "id": "task_eqjcmd9ti",
-      "title": "Work Work",
-      "description": "Work!",
-      "dueDate": "2023-12-21",
-      "status": "In Progress"
-    },
-    {
-      "id": "task_ui3yshihx",
-      "title": "hhhh",
-      "description": "",
-      "dueDate": "2023-12-28",
-      "status": "Pending"
-    },
-    {
-      "id": "task_mktxgm29r",
-      "title": "hhhhh",
-      "description": "",
+      "id": "task_gglc3hwti",
+      "title": "Task3",
+      "description": "Task",
       "dueDate": "2023-12-20",
-      "status": "Completed"
-    },
-    {
-      "id": "task_yix2nefl3",
-      "title": "hhhhhh",
-      "description": "hh",
-      "dueDate": "2024-01-06",
-      "status": "Open"
-    },
-    {
-      "id": "task_3o42w0z99",
-      "title": "klll",
-      "description": "lllllljj",
-      "dueDate": "2024-02-07",
-      "status": "Open"
-    },
-    {
-      "id": "task_oe3rprleb",
-      "title": "hki9",
-      "description": "h",
-      "dueDate": "2023-12-28",
-      "status": "Open"
+      "status": "Open",
+      "user": "user_fsq1go04c"
     }
   ]
 }

@@ -1,8 +1,10 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
-import { useTaskContext } from "../TaskContext";
+import { useTaskContext } from "../context/TaskContext";
 import { TaskFormData, TaskFormProps } from "../constants";
+import { useUserContext } from "../context/UserContext";
 
 const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
+	const {currentUserId} = useUserContext()
 	const { addTask } = useTaskContext();
 	const [formData, setFormData] = useState<TaskFormData>({
 		title: "",
@@ -31,6 +33,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 				description: formData.description,
 				dueDate: formData.dueDate,
 				status: "Open",
+				user: currentUserId
 			};
 			addTask(taskData)
 			onClose()

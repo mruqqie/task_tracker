@@ -14,12 +14,12 @@ export interface Task {
 	description: string;
 	dueDate: string;
 	status: string;
+	user: string | null
 }
 
 export interface TaskProps {
 	task: Task;
 	toggleEditFormVisibility: (task: Task | null) => void;
-
 }
 
 export interface UpdateTaskStatus {
@@ -37,6 +37,30 @@ export interface TaskContextValue {
 	deleteTask: (taskId: string) => void;
 	fetchTasks: () => void;
 	updateTaskStatus: (taskId: string, newStatus: string) => void;
+}
+
+export interface User {
+	id: string;
+	username: string;
+	password: string;
+}
+
+export interface UserContextValue {
+	user: User | null;
+	login: (username: string, password: string) => void;
+	signup: (userData: User) => void;
+	logout: () => void;
+	currentUserId: string |null;
+}
+
+export interface SignupFormData {
+	username: string;
+	password: string;
+}
+
+export interface LoginFormData {
+	username: string;
+	password: string;
 }
 
 export const ItemTypes = {
