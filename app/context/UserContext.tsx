@@ -91,7 +91,7 @@ export const UserProvider: React.FC<UserContectProps> = ({ children }) => {
 
 				if (response.ok) {
 					setUser(userData);
-					console.log("User signed up successfully");
+					alert("User signed up successfully. Please login.");
 					router.push("/login");
 				} else {
 					console.error("Failed to sign up user");
