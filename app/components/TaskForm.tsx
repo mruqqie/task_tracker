@@ -92,7 +92,6 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 						</button>
 						<button
 							className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-md"
-							// Add functionality to handle form submission
 						>
 							Create Task
 						</button>
