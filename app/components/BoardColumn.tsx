@@ -11,7 +11,6 @@ const BoardColumn: React.FC<BoardColumnProps> = ({
 }) => {
 	const [editFormVisible, setEditFormVisibility] = useState(false);
 	const [selectedTask, setSelectedTask] = useState<Task | null>(null);
-	
 
 	const toggleEditFormVisibility = (task: Task | null) => {
 		setSelectedTask(task);
@@ -28,15 +27,14 @@ const BoardColumn: React.FC<BoardColumnProps> = ({
 	return (
 		<div
 			ref={drop}
-			className="pb-4 bg-gray-900 rounded-lg shadow-md sm:w-[300px] w-full"
+			className="pb-4 rounded-lg sm:w-[300px] w-full"
 		>
-			<div className="flex row justify-between h-20 bg-blue-800 items-center rounded-t-lg">
-				<h2 className="text-[25px] font-bold text-white pl-4">
+			<div className="flex row justify-between h-20 items-center rounded-lg shadow-xl">
+				<h2 className="text-[25px] font-bold text-black pl-4">
 					{status}
 				</h2>
-				{/* <p className="text-[10px] pr-4">Sort by: <span>Due Date</span>-<span>A-Z</span></p> */}
 			</div>
-			<div className="space-y-4 p-4">
+			<div className="space-y-4 pt-4">
 				{tasks.map((task) => (
 					<Tasks
 						key={task.id}

@@ -24,7 +24,7 @@ const Header = () => {
 	};
 
 	return (
-		<header className="bg-blue-800 p-4 flex justify-between items-center">
+		<header className="bg-gray-900 p-4 flex justify-between items-center">
 			<h1 className="text-white text-md sm:text-2xl font-bold">{currentUserId ? user?.username : "Task Tracker"}</h1>
 			<div className="flex gap-3">
 				{currentUserId ? (<button
@@ -35,7 +35,7 @@ const Header = () => {
 					<span className="sm:hidden">+</span>
 				</button>) : (<button
 					onClick={() => {router.push("/signup")}}
-					className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-red-300"
+					className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-red-300"
 				>
 					Sign up
 				</button>)}

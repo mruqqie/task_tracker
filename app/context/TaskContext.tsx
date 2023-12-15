@@ -22,12 +22,19 @@ export const TaskProvider: React.FC<TaskContextProps> = ({ children }) => {
 
 	useEffect(() => {
 		
-		fetchTasks();
+		fetchTasks(null);
 	}, []);
 
-	const fetchTasks = async () => {
+	const fetchTasks = async (sortParam: string | null) => {
 		try {
-			const response = await fetch(`http://localhost:3001/tasks?user=${currentUserId}`);
+			let apiUrl = `http://localhost:3001/tasks?user=${currentUserId}`;
+
+			if (sortParam === "atoz") {
+			  apiUrl += "&_sort=title";
+			} else if (sortParam === "duedate") {
+			  apiUrl += "&_sort=dueDate";
+			}
+			const response = await fetch(apiUrl);
 			const data = await response.json();
 			setTasks(data);
 		} catch (error) {
@@ -47,7 +54,7 @@ export const TaskProvider: React.FC<TaskContextProps> = ({ children }) => {
 
 			if (response.ok) {
 				console.log("Task created successfully");
-				await fetchTasks();
+				await fetchTasks(null);
 				console.log("All tasks after adding:", tasks);
 			} else {
 				console.error("Failed to create task");
@@ -72,7 +79,7 @@ export const TaskProvider: React.FC<TaskContextProps> = ({ children }) => {
 
 			if (response.ok) {
 				console.log("Task updated successfully");
-				fetchTasks();
+				fetchTasks(null);
 			} else {
 				console.error("Failed to update task");
 			}
@@ -92,7 +99,7 @@ export const TaskProvider: React.FC<TaskContextProps> = ({ children }) => {
 
 			if (response.ok) {
 				console.log("Task deleted successfully");
-				fetchTasks();
+				fetchTasks(null);
 			} else {
 				console.error("Failed to delete task");
 			}
@@ -116,7 +123,7 @@ export const TaskProvider: React.FC<TaskContextProps> = ({ children }) => {
 
 			if (response.ok) {
 				console.log("Task status updated successfully");
-				fetchTasks();
+				fetchTasks(null);
 			} else {
 				console.error("Failed to update task status");
 			}

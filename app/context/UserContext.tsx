@@ -20,9 +20,6 @@ export const UserProvider: React.FC<UserContectProps> = ({ children }) => {
 	const [currentUserId, setCurrentUserId] = useState<string | null>(null);
 	const router = useRouter();
 
-	useEffect(() => {
-		router.push("/signup");
-	}, []);
 
 	const hashPassword = async (password: string) => {
 		const encoder = new TextEncoder();

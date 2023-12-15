@@ -55,7 +55,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({
 	const currentDate = new Date().toISOString().split("T")[0];
 
 	return (
-		<div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-75">
+		<div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 text-white bg-opacity-75">
 			<div className="rounded-xl bg-black p-8">
 				<h2 className="text-2xl font-bold mb-4">Edit Task</h2>
 				<form onSubmit={handleSubmit}>

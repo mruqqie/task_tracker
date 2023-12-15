@@ -8,15 +8,16 @@ import BoardColumn from "./BoardColumn";
 const Board: React.FC = () => {
 	const { fetchTasks, tasks, updateTaskStatus } = useTaskContext();
 	const [loading, setLoading] = useState(true);
+	const [sortType, setSortType] = useState<string | null>(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
-			await fetchTasks();
+			await fetchTasks(sortType);
 			setLoading(false);
 		};
 
 		fetchData();
-	}, [fetchTasks]);
+	}, [fetchTasks, sortType]);
 
 	const columns = {
 		Open: tasks.filter((task) => task.status === "Open"),
@@ -31,6 +32,32 @@ const Board: React.FC = () => {
 
 	return (
 		<DndProvider backend={HTML5Backend}>
+			<div className="pt-6 pl-6">
+				<p className="text-[15px] pr-4">
+					Sort by:{" "}
+					<span
+						className={`hover:underline hover:cursor-pointer ${
+							sortType === "duedate" ? "font-bold" : "font-normal"
+						}`}
+						onClick={() => {
+							setSortType("duedate");
+						}}
+					>
+						Due Date
+					</span>
+					{" "}-{" "}
+					<span
+						className={`hover:underline hover:cursor-pointer ${
+							sortType === "atoz" ? "font-bold" : "font-normal"
+						}`}
+						onClick={() => {
+							setSortType("atoz");
+						}}
+					>
+						A-Z
+					</span>
+				</p>
+			</div>
 			<div className="flex flex-wrap gap-7 p-6">
 				{Object.entries(columns).map(([status, tasks]) => (
 					<BoardColumn

@@ -25,6 +25,10 @@ export interface TaskProps {
 export interface UpdateTaskStatus {
 	(taskId: string, status: string): void;
 }
+
+interface handleSortType {
+	(sortType: string): void
+}
 export interface BoardColumnProps {
 	status: string;
 	tasks: Task[];
@@ -35,7 +39,7 @@ export interface TaskContextValue {
 	addTask: (task: Task) => void;
 	updateTask: (taskId: string, updatedTask: Task) => void;
 	deleteTask: (taskId: string) => void;
-	fetchTasks: () => void;
+	fetchTasks: (sortType: string | null) => void;
 	updateTaskStatus: (taskId: string, newStatus: string) => void;
 }
 

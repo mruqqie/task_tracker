@@ -33,7 +33,7 @@ const Login: React.FC = () => {
 	};
 
 	return (
-		<div className="sm:max-w-md max-w-[90%] mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
+		<div className="sm:max-w-md max-w-[90%] mx-auto mt-[100px] p-6 bg-white rounded-md shadow-2xl">
 			<h2 className="text-2xl font-semibold mb-4 text-gray-800">
 				Login
 			</h2>
